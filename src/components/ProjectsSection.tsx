@@ -1,5 +1,7 @@
 import flyOpsDashboard from '../assets/projects/flyops-dashboard.png'
 import onePlaceDashboard from '../assets/projects/oneplace-dashboard.png'
+import { motion } from 'motion/react'
+import { fadeUp, fadeUpTransition, premiumEase, revealViewport, sectionSequence } from '../motion'
 
 type Project = {
   title: string
@@ -50,7 +52,7 @@ function ProjectCard({ project }: { project: Project }) {
         <img
           src={project.image.src}
           alt={project.image.alt}
-          className="h-full w-full object-cover transition-transform duration-200 group-hover:scale-[1.015]"
+          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
         />
       </div>
 
@@ -126,24 +128,28 @@ export function ProjectsSection() {
       className="viewport-section bg-hero px-[var(--page-gutter)] pt-0 pb-20 text-ink md:pb-24 lg:pb-40"
     >
       <div className="site-container">
-        <header className="mx-auto max-w-5xl pb-7 text-center">
-          <p className="flex items-center justify-center gap-3 text-[0.625rem] font-semibold tracking-[0.22em] text-accent uppercase before:h-px before:w-6 before:bg-accent/50 after:h-px after:w-6 after:bg-accent/50">
+        <motion.header initial="hidden" whileInView="visible" viewport={revealViewport} variants={sectionSequence} className="mx-auto max-w-5xl pb-7 text-center">
+          <motion.p variants={fadeUp} transition={fadeUpTransition} className="flex items-center justify-center gap-3 text-[0.625rem] font-semibold tracking-[0.22em] text-accent uppercase before:h-px before:w-6 before:bg-accent/50 after:h-px after:w-6 after:bg-accent/50">
             WHAT I&apos;VE DONE
-          </p>
-          <h2
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            transition={fadeUpTransition}
             id="projects-title"
             className="mt-2.5 text-[2rem] leading-tight font-bold tracking-[-0.04em] md:text-[2.5rem] lg:text-[3.5rem] min-[1600px]:text-[3.75rem]"
           >
             PROJECTS
-          </h2>
+          </motion.h2>
           <span aria-hidden="true" className="mx-auto mt-3 block h-px w-12 bg-accent" />
-        </header>
+        </motion.header>
 
-        <div className="mt-10 grid w-full grid-cols-1 gap-6 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:gap-8 min-[1600px]:gap-7">
+        <motion.div initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.12 } } }} className="mt-10 grid w-full grid-cols-1 gap-6 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:gap-8 min-[1600px]:gap-7">
           {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+            <motion.div key={project.title} variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.68, ease: premiumEase }} className="h-full">
+              <ProjectCard project={project} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

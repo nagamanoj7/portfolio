@@ -6,10 +6,11 @@ import { Header } from '../components/Header'
 import { Hero } from '../components/Hero'
 import { ProjectsSection } from '../components/ProjectsSection'
 import { SkillsSection } from '../components/SkillsSection'
+import { MotionConfig } from 'motion/react'
 
 export function HomePage() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <Header />
       <main>
         <Hero />
@@ -20,6 +21,6 @@ export function HomePage() {
         <CertificationsSection />
         <ContactSection />
       </main>
-    </>
+    </MotionConfig>
   )
 }

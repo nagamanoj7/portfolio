@@ -14,9 +14,51 @@
   :root {
     --header-height: 4.25rem;
     --page-gutter: 1.25rem;
+    --bg-page: #080d18;
+    --bg-section: #030407;
+    --bg-section-alt: #030407;
+    --bg-surface: #0d1424;
+    --bg-elevated: #0d1424;
+    --text-primary: #f4f7fb;
+    --text-secondary: #94a3b8;
+    --border: #1e293b;
+    --accent: #8b5cf6;
+    --accent-hover: #8b5cf6;
+    --accent-soft: #8b5cf60d;
+    --color-canvas: var(--bg-page);
+    --color-hero: var(--bg-section);
+    --color-surface: var(--bg-surface);
+    --color-ink: var(--text-primary);
+    --color-muted: var(--text-secondary);
+    --color-line: var(--border);
+    --color-accent: var(--accent);
     color-scheme: dark;
     scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
+  }
+
+  :root[data-theme='light'] {
+    --bg-page: #f1f2f4;
+    --bg-section: #f1f2f4;
+    --bg-section-alt: #f6f7f8;
+    --bg-surface: #ffffff;
+    --bg-elevated: #eceef1;
+    --text-primary: #18191c;
+    --text-secondary: #5f6268;
+    --text-muted: #85888e;
+    --border: #d9dce1;
+    --accent: #b83a0a;
+    --accent-hover: #922b08;
+    --accent-soft: #f2ded5;
+    color-scheme: light;
+  }
+
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition-property: background-color, border-color, color !important;
+    transition-duration: 250ms !important;
+    transition-timing-function: ease !important;
   }
 
   @media (min-width: 64rem) {
@@ -52,6 +94,14 @@
     :root {
       scroll-behavior: auto;
     }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -63,6 +113,66 @@
 
   .viewport-section {
     min-height: calc(100dvh - var(--header-height));
+  }
+
+  [data-theme='light'] #site-header {
+    background-color: #f1f2f4;
+  }
+
+  [data-theme='light'] #about {
+    background-color: #f6f7f8;
+  }
+
+  [data-theme='light'] #experience {
+    background-color: #f1f2f4;
+  }
+
+  [data-theme='light'] #projects {
+    background-color: #f6f7f8;
+  }
+
+  [data-theme='light'] #skills {
+    background-color: #f1f2f4;
+  }
+
+  [data-theme='light'] #certifications {
+    background-color: #f6f7f8;
+  }
+
+  [data-theme='light'] #contact {
+    background-color: #f1f2f4;
+  }
+
+  [data-theme='light'] #experience > .site-container > div > ol > span {
+    background-color: #d9a18b;
+  }
+
+  [data-theme='light'] #projects a.group,
+  [data-theme='light'] #projects article.group {
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgb(20 20 30 / 0.05);
+  }
+
+  [data-theme='light'] #skills article {
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgb(20 20 30 / 0.04);
+  }
+
+  [data-theme='light'] #certifications article {
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgb(20 20 30 / 0.04);
+  }
+
+  [data-theme='light'] #skills article h3 {
+    color: var(--color-accent);
+  }
+
+  [data-theme='light'] #skills article li {
+    background-color: var(--bg-elevated);
+  }
+
+  [data-theme='light'] #contact .contact-actions a {
+    background-color: #ffffff;
   }
 }
 

@@ -1,3 +1,6 @@
+import { motion } from 'motion/react'
+import { fadeUp, fadeUpTransition, premiumEase, revealViewport, sectionSequence } from '../motion'
+
 type ContactKey = 'email' | 'phone' | 'github' | 'linkedin'
 
 type ContactItem = {
@@ -122,39 +125,43 @@ export function ContactSection() {
     >
       <div className="site-container min-[1600px]:mx-auto min-[1600px]:flex min-[1600px]:min-h-[calc(100dvh-var(--header-height))] min-[1600px]:w-[90vw] min-[1600px]:max-w-[93.75rem] min-[1600px]:flex-col">
         <div className="contact-main min-[1600px]:grid min-[1600px]:min-h-0 min-[1600px]:flex-1 min-[1600px]:grid-rows-[auto_minmax(0,1fr)_auto_minmax(0,1fr)] min-[1600px]:pt-[clamp(1rem,1.5vh,1.5rem)]">
-          <div className="mx-auto max-w-3xl text-center min-[1600px]:max-w-[62.5rem]">
-            <p className="text-[0.640625rem] font-semibold tracking-[0.22em] text-accent uppercase">
+          <motion.div initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ ...sectionSequence, visible: { transition: { staggerChildren: 0.13 } } }} className="mx-auto max-w-3xl text-center min-[1600px]:max-w-[62.5rem]">
+            <motion.p variants={fadeUp} transition={fadeUpTransition} className="text-[0.640625rem] font-semibold tracking-[0.22em] text-accent uppercase">
               Get in touch
-            </p>
-            <h2
+            </motion.p>
+            <motion.h2
+              variants={fadeUp}
+              transition={fadeUpTransition}
               id="contact-title"
               className="contact-heading mt-2.5 text-[2rem] leading-[0.94] font-bold tracking-[-0.055em] md:text-[2.5rem] lg:text-[3.5rem] min-[1600px]:text-[clamp(3.75rem,4vw,5rem)]"
             >
               LET&apos;S CONNECT
-            </h2>
+            </motion.h2>
             <span aria-hidden="true" className="mx-auto mt-[0.9375rem] block h-px w-12 bg-accent" />
 
-            <p className="mt-[1.0625rem] text-[1.0625rem] leading-7 text-ink/90 sm:text-[1.1875rem] min-[1600px]:mt-7 min-[1600px]:text-2xl min-[1600px]:leading-9 min-[1600px]:font-medium">
+            <motion.p variants={fadeUp} transition={fadeUpTransition} className="mt-[1.0625rem] text-[1.0625rem] leading-7 text-ink/90 sm:text-[1.1875rem] min-[1600px]:mt-7 min-[1600px]:text-2xl min-[1600px]:leading-9 min-[1600px]:font-medium">
               Have a project, opportunity, or idea in mind? Let&apos;s talk.
-            </p>
-            <p className="mx-auto mt-[0.4375rem] max-w-2xl text-[0.84375rem] leading-6 text-muted sm:text-[0.90625rem] sm:leading-6 min-[1600px]:mt-3 min-[1600px]:max-w-[62.5rem] min-[1600px]:text-[1.1875rem] min-[1600px]:leading-[1.65]">
+            </motion.p>
+            <motion.p variants={fadeUp} transition={fadeUpTransition} className="mx-auto mt-[0.4375rem] max-w-2xl text-[0.84375rem] leading-6 text-muted sm:text-[0.90625rem] sm:leading-6 min-[1600px]:mt-3 min-[1600px]:max-w-[62.5rem] min-[1600px]:text-[1.1875rem] min-[1600px]:leading-[1.65]">
               I&apos;m always open to discussing software engineering opportunities, interesting
               projects, and ways to build something meaningful.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <ul className="contact-details mx-auto mt-[1.875rem] grid max-w-2xl gap-6 sm:mt-[2.125rem] md:grid-cols-2 md:gap-0 min-[1600px]:row-start-3 min-[1600px]:mt-0 min-[1600px]:max-w-[56.25rem] min-[1600px]:self-center">
+          <motion.ul initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={revealViewport} transition={{ duration: 0.75, delay: 0.3, ease: premiumEase }} className="contact-details mx-auto mt-[1.875rem] grid max-w-2xl gap-6 sm:mt-[2.125rem] md:grid-cols-2 md:gap-0 min-[1600px]:row-start-3 min-[1600px]:mt-0 min-[1600px]:max-w-[56.25rem] min-[1600px]:self-center">
             {contactRows.map((item) => (
               <ContactRow key={item.label} item={item} />
             ))}
-          </ul>
+          </motion.ul>
         </div>
 
         <div className="contact-bottom min-[1600px]:mt-auto min-[1600px]:pb-8">
-          <div className="contact-actions mt-[3.625rem] grid gap-3 md:grid-cols-3 md:gap-4 min-[1600px]:mx-auto min-[1600px]:mt-0 min-[1600px]:max-w-[75rem] min-[1600px]:gap-5">
+          <motion.div initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08, delayChildren: 0.38 } } }} className="contact-actions mt-[3.625rem] grid gap-3 md:grid-cols-3 md:gap-4 min-[1600px]:mx-auto min-[1600px]:mt-0 min-[1600px]:max-w-[75rem] min-[1600px]:gap-5">
             {socialLinks.map((item) => (
-              <a
+              <motion.a
                 key={item.label}
+                variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
+                transition={{ duration: 0.68, ease: premiumEase }}
                 href={item.href}
                 {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="group flex min-h-[3.375rem] items-center justify-center gap-2.5 rounded-lg border border-accent/30 bg-surface/25 px-6 text-[0.84375rem] font-medium text-ink/90 transition duration-200 hover:-translate-y-0.5 hover:border-accent/65 hover:bg-surface/45 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent min-[1600px]:min-h-[4.5rem] min-[1600px]:px-9 min-[1600px]:text-[1.0625rem]"
@@ -163,11 +170,11 @@ export function ContactSection() {
                   <ContactIcon icon={item.icon} />
                 </span>
                 {item.text}
-              </a>
+              </motion.a>
             ))}
-          </div>
+          </motion.div>
 
-          <footer className="contact-footer relative mt-10 border-t border-line pt-[1.3125rem] pb-[0.4375rem] sm:mt-11 sm:pt-[1.5625rem] sm:pb-[0.6875rem] min-[1600px]:mx-auto min-[1600px]:mt-12 min-[1600px]:w-full min-[1600px]:max-w-[75rem] min-[1600px]:pt-7">
+          <motion.footer initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={revealViewport} transition={{ duration: 0.8, delay: 0.48, ease: premiumEase }} className="contact-footer relative mt-10 border-t border-line pt-[1.3125rem] pb-[0.4375rem] sm:mt-11 sm:pt-[1.5625rem] sm:pb-[0.6875rem] min-[1600px]:mx-auto min-[1600px]:mt-12 min-[1600px]:w-full min-[1600px]:max-w-[75rem] min-[1600px]:pt-7">
           <div className="text-center min-[1600px]:text-left">
             <p className="text-[0.84375rem] font-semibold tracking-[0.2em] text-ink uppercase min-[1600px]:text-[0.9375rem]">
               Naga Manoj Chittiprolu
@@ -183,7 +190,7 @@ export function ContactSection() {
           >
             Back to top ↑
           </a>
-          </footer>
+          </motion.footer>
         </div>
       </div>
     </section>

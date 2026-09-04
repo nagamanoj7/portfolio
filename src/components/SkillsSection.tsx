@@ -1,3 +1,6 @@
+import { motion } from 'motion/react'
+import { fadeUp, fadeUpTransition, premiumEase, revealViewport, sectionSequence } from '../motion'
+
 type SkillGroup = {
   category: string
   icon: 'frontend' | 'backend' | 'cloud' | 'database'
@@ -46,17 +49,17 @@ export function SkillsSection() {
   return (
     <section id="skills" aria-labelledby="skills-title" className="viewport-section bg-hero px-[var(--page-gutter)] pt-0 pb-12 text-ink md:pb-16 lg:pb-20">
       <div className="site-container">
-        <header className="text-center">
-          <p className="flex items-center justify-center gap-3 text-[0.625rem] font-semibold tracking-[0.22em] text-accent uppercase before:h-px before:w-6 before:bg-accent/50 after:h-px after:w-6 after:bg-accent/50">My tech stack</p>
-          <h2 id="skills-title" className="mt-2.5 text-[2rem] leading-tight font-bold tracking-[-0.04em] md:text-[2.5rem] lg:text-[3.5rem] min-[1600px]:text-[3.75rem]">
+        <motion.header initial="hidden" whileInView="visible" viewport={revealViewport} variants={sectionSequence} className="text-center">
+          <motion.p variants={fadeUp} transition={fadeUpTransition} className="flex items-center justify-center gap-3 text-[0.625rem] font-semibold tracking-[0.22em] text-accent uppercase before:h-px before:w-6 before:bg-accent/50 after:h-px after:w-6 after:bg-accent/50">My tech stack</motion.p>
+          <motion.h2 variants={fadeUp} transition={fadeUpTransition} id="skills-title" className="mt-2.5 text-[2rem] leading-tight font-bold tracking-[-0.04em] md:text-[2.5rem] lg:text-[3.5rem] min-[1600px]:text-[3.75rem]">
             SKILLS
-          </h2>
+          </motion.h2>
           <span aria-hidden="true" className="mx-auto mt-3 block h-px w-12 bg-accent" />
-        </header>
+        </motion.header>
 
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-9 md:grid-cols-2 md:gap-6 min-[1600px]:mx-auto min-[1600px]:mt-8 min-[1600px]:w-[95%] min-[1600px]:gap-7">
+        <motion.div initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.105, delayChildren: 0.12 } } }} className="mt-8 grid grid-cols-1 gap-5 sm:mt-9 md:grid-cols-2 md:gap-6 min-[1600px]:mx-auto min-[1600px]:mt-8 min-[1600px]:w-[95%] min-[1600px]:gap-7">
           {skillGroups.map((group) => (
-            <article key={group.category} className="group min-h-36 rounded-lg border border-line bg-surface/25 p-6 transition duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface/35 min-[1600px]:min-h-[12.5rem] min-[1600px]:p-7">
+            <motion.article variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0 } }} whileHover={{ y: -2, transition: { duration: 0.22, ease: premiumEase } }} transition={{ duration: 0.62, ease: premiumEase }} key={group.category} className="group min-h-36 rounded-lg border border-line bg-surface/25 p-6 transition duration-200 hover:border-accent/40 hover:bg-surface/35 min-[1600px]:min-h-[12.5rem] min-[1600px]:p-7">
               <div className="flex items-center gap-3">
                 <span className="flex size-9 shrink-0 items-center justify-center rounded-md border border-accent/25 bg-accent/5 text-accent/80 transition-colors duration-200 group-hover:border-accent/50 group-hover:text-accent min-[1600px]:size-11">
                   <CategoryIcon icon={group.icon} />
@@ -71,9 +74,9 @@ export function SkillsSection() {
                   </li>
                 ))}
               </ul>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

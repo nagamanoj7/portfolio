@@ -1,4 +1,8 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'motion/react'
+import { premiumEase } from '../motion'
+
+type Theme = 'dark' | 'light'
 
 const navigationItems = [
   { label: 'Home', href: '#home' },
@@ -10,9 +14,61 @@ const navigationItems = [
   { label: 'Contact', href: '#contact' },
 ] as const
 
+function ThemeToggle({ theme, onToggle }: { theme: Theme; onToggle: () => void }) {
+  const isLight = theme === 'light'
+  const label = `Switch to ${isLight ? 'dark' : 'light'} mode`
+
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={isLight}
+      aria-label={label}
+      title={label}
+      onClick={onToggle}
+      className="relative h-5 w-9 shrink-0 rounded-full border border-line bg-surface/70 text-hero transition-colors duration-200 hover:border-accent/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
+      <span
+        aria-hidden="true"
+        className={`absolute top-0.5 left-0.5 flex size-3.5 items-center justify-center rounded-full bg-accent transition-transform duration-200 ${isLight ? 'translate-x-4' : 'translate-x-0'}`}
+      >
+        {isLight ? (
+          <svg viewBox="0 0 16 16" className="size-2.5" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <circle cx="8" cy="8" r="2.5" />
+            <path strokeLinecap="round" d="M8 1.5v1M8 12.5v2M1.5 8h1M13.5 8h1M3.4 3.4l.7.7M11.9 11.9l.7.7M12.6 3.4l-.7.7M4.1 11.9l-.7.7" />
+          </svg>
+        ) : (
+          <svg viewBox="0 0 16 16" className="size-2.5" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12.8 10.2A5 5 0 0 1 5.8 3.3a5 5 0 1 0 7 6.9Z" />
+          </svg>
+        )}
+      </span>
+    </button>
+  )
+}
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeHref, setActiveHref] = useState('#home')
+  const [theme, setTheme] = useState<Theme>(() =>
+    document.documentElement.dataset.theme === 'light' ? 'light' : 'dark',
+  )
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    const root = document.documentElement
+
+    root.classList.add('theme-transition')
+    root.dataset.theme = nextTheme
+    try {
+      localStorage.setItem('portfolio-theme', nextTheme)
+    } catch {
+      // The selected theme still applies when storage is unavailable.
+    }
+    setTheme(nextTheme)
+
+    window.setTimeout(() => root.classList.remove('theme-transition'), 250)
+  }
 
   useEffect(() => {
     const sections = navigationItems.flatMap((item) => {
@@ -68,15 +124,23 @@ export function Header() {
                 >
                   {item.label}
                   {item.href === activeHref && (
-                    <span className="absolute bottom-0 left-1/2 size-1 -translate-x-1/2 rounded-full bg-accent" />
+                    <motion.span
+                      layoutId="active-navigation-dot"
+                      transition={{ duration: 0.2, ease: premiumEase }}
+                      className="absolute bottom-0 left-1/2 -ml-0.5 size-1 rounded-full bg-accent"
+                    />
                   )}
                 </a>
               </li>
             ))}
+            <li className="flex items-center pb-4">
+              <ThemeToggle theme={theme} onToggle={toggleTheme} />
+            </li>
           </ul>
         </nav>
 
-        <div className="relative xl:hidden">
+        <div className="relative flex items-center gap-2 xl:hidden">
+          <ThemeToggle theme={theme} onToggle={toggleTheme} />
           <button
             type="button"
             aria-expanded={isMenuOpen}

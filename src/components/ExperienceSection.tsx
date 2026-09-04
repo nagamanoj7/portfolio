@@ -1,3 +1,6 @@
+import { motion } from 'motion/react'
+import { fadeUp, fadeUpTransition, premiumEase, revealViewport, sectionSequence } from '../motion'
+
 type Experience = {
   company: string
   role: string
@@ -28,28 +31,33 @@ export function ExperienceSection() {
     >
       <div className="site-container">
         <div className="w-full">
-          <header className="pb-[0.1875rem] text-center">
-          <p className="flex items-center justify-center gap-3 text-[0.625rem] font-semibold tracking-[0.22em] text-accent uppercase before:h-px before:w-6 before:bg-accent/50 after:h-px after:w-6 after:bg-accent/50">
+          <motion.header initial="hidden" whileInView="visible" viewport={revealViewport} variants={sectionSequence} className="pb-[0.1875rem] text-center">
+          <motion.p variants={fadeUp} transition={fadeUpTransition} className="flex items-center justify-center gap-3 text-[0.625rem] font-semibold tracking-[0.22em] text-accent uppercase before:h-px before:w-6 before:bg-accent/50 after:h-px after:w-6 after:bg-accent/50">
             WHERE I&apos;VE BEEN
-          </p>
-          <h2
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            transition={fadeUpTransition}
             id="experience-title"
             className="mt-2.5 text-[2rem] leading-tight font-bold tracking-[-0.04em] md:text-[2.5rem] lg:text-[3.5rem] min-[1600px]:text-[3.75rem]"
           >
             PROFESSIONAL EXPERIENCE
-          </h2>
+          </motion.h2>
           <span aria-hidden="true" className="mx-auto mt-3 block h-px w-12 bg-accent" />
-          </header>
+          </motion.header>
 
-          <ol className="relative mt-10 space-y-10 before:absolute before:top-2 before:bottom-2 before:left-0 before:w-px before:bg-line sm:mt-14 sm:space-y-12 lg:mt-16 lg:space-y-14">
+          <motion.ol initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.18, delayChildren: 0.12 } } }} className="relative mt-10 space-y-10 sm:mt-14 sm:space-y-12 lg:mt-16 lg:space-y-14">
+          <motion.span aria-hidden="true" variants={{ hidden: { scaleY: 0 }, visible: { scaleY: 1 } }} transition={{ duration: 0.8, ease: premiumEase }} className="absolute top-2 bottom-2 left-0 w-px origin-top bg-line" />
           {experiences.map((experience) => (
-            <li key={experience.company} className="group relative pl-6 sm:pl-8">
-              <span
+            <motion.li variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }} key={experience.company} className="group relative pl-6 sm:pl-8">
+              <motion.span
                 aria-hidden="true"
-                className="absolute top-2 left-0 size-2 -translate-x-1/2 rounded-full border border-accent bg-surface transition-colors duration-200 group-hover:bg-accent"
+                variants={{ hidden: { opacity: 0, scale: 0.9, x: '-50%' }, visible: { opacity: 1, scale: 1, x: '-50%' } }}
+                transition={{ duration: 0.4, ease: premiumEase }}
+                className="absolute top-2 left-0 size-2 rounded-full border border-accent bg-surface transition-colors duration-200 group-hover:bg-accent"
               />
 
-              <article>
+              <motion.article variants={{ hidden: { opacity: 0, x: 18 }, visible: { opacity: 1, x: 0 } }} transition={{ duration: 0.7, ease: premiumEase }}>
                 <h3 className="max-w-4xl text-[1.375rem] leading-tight font-semibold tracking-[-0.03em] text-ink transition-colors duration-200 group-hover:text-accent sm:text-[1.625rem] lg:text-[2rem] min-[1600px]:text-[2.125rem]">
                   {experience.company.toUpperCase()}
                 </h3>
@@ -62,10 +70,10 @@ export function ExperienceSection() {
                     {experience.description}
                   </p>
                 )}
-              </article>
-            </li>
+              </motion.article>
+            </motion.li>
           ))}
-          </ol>
+          </motion.ol>
         </div>
       </div>
     </section>
