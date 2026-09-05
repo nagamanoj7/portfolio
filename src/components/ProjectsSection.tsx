@@ -64,7 +64,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.category}
         </p>
 
-        <p className="mt-2.5 max-w-xl text-sm leading-6 text-muted sm:text-[0.9375rem] sm:leading-7">
+        <p className="body-copy mt-2.5 max-w-xl text-sm leading-6 sm:text-[0.9375rem] sm:leading-7">
           {project.description}
         </p>
 

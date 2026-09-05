@@ -48,7 +48,7 @@ function CertificationPanel({ certification }: { certification: Certification })
 
       <div className="min-w-0">
         <h3 className="text-base leading-snug font-semibold tracking-[-0.01em] text-ink sm:text-lg min-[1600px]:text-[1.3125rem]">{certification.name}</h3>
-        {certification.supportingText && <p className="mt-1.5 text-xs text-muted sm:text-[0.8125rem]">{certification.supportingText}</p>}
+        {certification.supportingText && <p className="supporting-copy mt-1.5 text-xs sm:text-[0.8125rem]">{certification.supportingText}</p>}
         <p className="mt-1 text-[0.8125rem] font-medium text-accent sm:text-sm min-[1600px]:text-base">{certification.issuer}</p>
       </div>
 

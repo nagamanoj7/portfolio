@@ -18,7 +18,7 @@ export function AboutSection() {
               &quot;A believer that small details make a big difference. For me, development has
               always been about more than writing code.&quot;
             </motion.p>
-            <motion.p variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }} transition={{ ...fadeUpTransition, duration: 0.72 }} className="about-paragraph mt-8 max-w-[54rem] text-base leading-[1.65] text-muted md:text-[1.0625rem] lg:text-[1.1875rem] min-[1600px]:max-w-[60rem] min-[1600px]:text-xl">
+            <motion.p variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }} transition={{ ...fadeUpTransition, duration: 0.72 }} className="about-paragraph body-copy mt-8 max-w-[54rem] text-base leading-[1.65] md:text-[1.0625rem] lg:text-[1.1875rem] min-[1600px]:max-w-[60rem] min-[1600px]:text-xl">
               I’m a software engineer who enjoys taking an idea, understanding the problem behind
               it, and turning it into something that works well and feels right to use. With a{' '}
               <span className="font-medium text-accent">Master’s in Computer Science</span> from{' '}

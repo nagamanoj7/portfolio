@@ -139,10 +139,10 @@ export function ContactSection() {
             </motion.h2>
             <span aria-hidden="true" className="mx-auto mt-[0.9375rem] block h-px w-12 bg-accent" />
 
-            <motion.p variants={fadeUp} transition={fadeUpTransition} className="mt-[1.0625rem] text-[1.0625rem] leading-7 text-ink/90 sm:text-[1.1875rem] min-[1600px]:mt-7 min-[1600px]:text-2xl min-[1600px]:leading-9 min-[1600px]:font-medium">
+            <motion.p variants={fadeUp} transition={fadeUpTransition} className="body-copy mt-[1.0625rem] text-[1.0625rem] leading-7 sm:text-[1.1875rem] min-[1600px]:mt-7 min-[1600px]:text-2xl min-[1600px]:leading-9 min-[1600px]:font-medium">
               Have a project, opportunity, or idea in mind? Let&apos;s talk.
             </motion.p>
-            <motion.p variants={fadeUp} transition={fadeUpTransition} className="mx-auto mt-[0.4375rem] max-w-2xl text-[0.84375rem] leading-6 text-muted sm:text-[0.90625rem] sm:leading-6 min-[1600px]:mt-3 min-[1600px]:max-w-[62.5rem] min-[1600px]:text-[1.1875rem] min-[1600px]:leading-[1.65]">
+            <motion.p variants={fadeUp} transition={fadeUpTransition} className="body-copy mx-auto mt-[0.4375rem] max-w-2xl text-[0.84375rem] leading-6 sm:text-[0.90625rem] sm:leading-6 min-[1600px]:mt-3 min-[1600px]:max-w-[62.5rem] min-[1600px]:text-[1.1875rem] min-[1600px]:leading-[1.65]">
               I&apos;m always open to discussing software engineering opportunities, interesting
               projects, and ways to build something meaningful.
             </motion.p>

@@ -66,7 +66,7 @@ export function ExperienceSection() {
                 </p>
 
                 {experience.description && (
-                  <p className="mt-4 max-w-[60rem] text-sm leading-[1.65] text-muted sm:text-base">
+                  <p className="body-copy mt-4 max-w-[60rem] text-sm leading-[1.65] sm:text-base">
                     {experience.description}
                   </p>
                 )}

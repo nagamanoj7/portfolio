@@ -33,7 +33,7 @@ export function Hero() {
             Software Engineer
           </motion.p>
 
-          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.56, ease: premiumEase }} className="mt-7 max-w-[34rem] text-sm leading-7 text-ink/75 italic sm:text-base sm:leading-8 lg:max-w-none">
+          <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, delay: 0.56, ease: premiumEase }} className="body-copy mt-7 max-w-[34rem] text-sm leading-7 italic sm:text-base sm:leading-8 lg:max-w-none">
             <span className="hero-description-line lg:whitespace-nowrap">
               I build scalable, efficient, and user-focused web applications that solve real problems and deliver meaningful results.
             </span>

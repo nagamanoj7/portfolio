@@ -45,7 +45,6 @@
     --bg-elevated: #eceef1;
     --text-primary: #18191c;
     --text-secondary: #5f6268;
-    --text-muted: #85888e;
     --border: #d9dce1;
     --accent: #b83a0a;
     --accent-hover: #922b08;
@@ -113,6 +112,22 @@
 
   .viewport-section {
     min-height: calc(100dvh - var(--header-height));
+  }
+
+  p.body-copy {
+    color: #d8dae0;
+  }
+
+  p.supporting-copy {
+    color: #b8bbc3;
+  }
+
+  :root[data-theme='light'] p.body-copy {
+    color: #3b3d42;
+  }
+
+  :root[data-theme='light'] p.supporting-copy {
+    color: #56595f;
   }
 
   [data-theme='light'] #site-header {
