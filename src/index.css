@@ -168,6 +168,12 @@
     box-shadow: 0 10px 30px rgb(20 20 30 / 0.05);
   }
 
+  [data-theme='light'] #projects a.github-action:hover {
+    border-color: var(--accent-hover);
+    background-color: var(--accent-soft);
+    color: var(--accent-hover);
+  }
+
   [data-theme='light'] #skills article {
     background-color: #ffffff;
     box-shadow: 0 8px 24px rgb(20 20 30 / 0.04);
