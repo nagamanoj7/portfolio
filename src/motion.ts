@@ -11,7 +11,7 @@ export const fadeUp = {
 }
 
 export const fadeUpTransition = {
-  duration: 0.65,
+  duration: 0.9,
   ease: premiumEase,
 }
 
@@ -19,7 +19,7 @@ export const sectionSequence = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.17,
     },
   },
 }

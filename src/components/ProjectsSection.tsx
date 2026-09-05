@@ -143,9 +143,9 @@ export function ProjectsSection() {
           <span aria-hidden="true" className="mx-auto mt-3 block h-px w-12 bg-accent" />
         </motion.header>
 
-        <motion.div initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12, delayChildren: 0.12 } } }} className="mt-10 grid w-full grid-cols-1 gap-6 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:gap-8 min-[1600px]:gap-7">
+        <motion.div initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.18, delayChildren: 0.17 } } }} className="mt-10 grid w-full grid-cols-1 gap-6 sm:mt-14 md:grid-cols-2 lg:mt-16 lg:gap-8 min-[1600px]:gap-7">
           {projects.map((project) => (
-            <motion.div key={project.title} variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.68, ease: premiumEase }} className="h-full">
+            <motion.div key={project.title} variants={{ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.95, ease: premiumEase }} className="h-full">
               <ProjectCard project={project} />
             </motion.div>
           ))}

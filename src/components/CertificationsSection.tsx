@@ -41,7 +41,7 @@ function VerifiedIcon() {
 
 function CertificationPanel({ certification }: { certification: Certification }) {
   return (
-    <motion.article variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} whileHover={{ y: -2, transition: { duration: 0.22, ease: premiumEase } }} transition={{ duration: 0.55, ease: premiumEase }} className="group grid min-h-32 grid-cols-[2.5rem_minmax(0,1fr)_1.25rem] items-center gap-4 rounded-lg border border-line bg-surface/25 p-5 transition duration-200 hover:border-accent/40 hover:bg-surface/35 min-[1600px]:min-h-[11rem] min-[1600px]:grid-cols-[3rem_minmax(0,1fr)_1.5rem] min-[1600px]:gap-5 min-[1600px]:p-6">
+    <motion.article variants={{ hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0 } }} whileHover={{ y: -2, transition: { duration: 0.22, ease: premiumEase } }} transition={{ duration: 0.9, ease: premiumEase }} className="group grid min-h-32 grid-cols-[2.5rem_minmax(0,1fr)_1.25rem] items-center gap-4 rounded-lg border border-line bg-surface/25 p-5 transition duration-200 hover:border-accent/40 hover:bg-surface/35 min-[1600px]:min-h-[11rem] min-[1600px]:grid-cols-[3rem_minmax(0,1fr)_1.5rem] min-[1600px]:gap-5 min-[1600px]:p-6">
       <span className="flex size-10 shrink-0 items-center justify-center rounded-md border border-accent/25 bg-hero/50 text-accent/70 transition duration-200 group-hover:-translate-y-px group-hover:border-accent/50 group-hover:text-accent min-[1600px]:size-12">
         <CertificationIcon />
       </span>
@@ -71,7 +71,7 @@ export function CertificationsSection() {
           <span aria-hidden="true" className="mx-auto mt-3 block h-px w-12 bg-accent" />
         </motion.header>
 
-        <motion.div initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.12 } } }} className="mt-8 grid grid-cols-1 gap-5 sm:mt-9 md:grid-cols-2 md:gap-6 min-[1600px]:mx-auto min-[1600px]:mt-8 min-[1600px]:w-[95%] min-[1600px]:gap-7">
+        <motion.div initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.15, delayChildren: 0.17 } } }} className="mt-8 grid grid-cols-1 gap-5 sm:mt-9 md:grid-cols-2 md:gap-6 min-[1600px]:mx-auto min-[1600px]:mt-8 min-[1600px]:w-[95%] min-[1600px]:gap-7">
           {certifications.map((certification) => <CertificationPanel key={certification.name} certification={certification} />)}
         </motion.div>
       </div>

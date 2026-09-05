@@ -14,11 +14,11 @@ export function AboutSection() {
         </motion.header>
 
         <motion.div initial="hidden" whileInView="visible" viewport={revealViewport} variants={sectionSequence} className="about-copy mx-auto mt-10 max-w-[64rem] text-left min-[1600px]:max-w-[75rem]">
-            <motion.p variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }} transition={{ ...fadeUpTransition, duration: 0.78 }} className="about-motto max-w-[64rem] text-[2rem] leading-[1.3] font-medium tracking-[-0.025em] text-ink sm:text-[2.25rem] md:text-[2.625rem] lg:text-5xl xl:text-[3.125rem] min-[1600px]:max-w-[75rem] min-[1600px]:text-[3.375rem]">
+            <motion.p variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }} transition={{ ...fadeUpTransition, duration: 1 }} className="about-motto max-w-[64rem] text-[2rem] leading-[1.3] font-medium tracking-[-0.025em] text-ink sm:text-[2.25rem] md:text-[2.625rem] lg:text-5xl xl:text-[3.125rem] min-[1600px]:max-w-[75rem] min-[1600px]:text-[3.375rem]">
               &quot;A believer that small details make a big difference. For me, development has
               always been about more than writing code.&quot;
             </motion.p>
-            <motion.p variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }} transition={{ ...fadeUpTransition, duration: 0.72 }} className="about-paragraph body-copy mt-8 max-w-[54rem] text-base leading-[1.65] md:text-[1.0625rem] lg:text-[1.1875rem] min-[1600px]:max-w-[60rem] min-[1600px]:text-xl">
+            <motion.p variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }} transition={{ ...fadeUpTransition, duration: 0.95 }} className="about-paragraph body-copy mt-8 max-w-[54rem] text-base leading-[1.65] md:text-[1.0625rem] lg:text-[1.1875rem] min-[1600px]:max-w-[60rem] min-[1600px]:text-xl">
               I’m a software engineer who enjoys taking an idea, understanding the problem behind
               it, and turning it into something that works well and feels right to use. With a{' '}
               <span className="font-medium text-accent">Master’s in Computer Science</span> from{' '}

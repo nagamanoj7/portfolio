@@ -115,7 +115,7 @@
   }
 
   p.body-copy {
-    color: #d8dae0;
+    color: #e0e1e5;
   }
 
   p.supporting-copy {
@@ -123,7 +123,7 @@
   }
 
   :root[data-theme='light'] p.body-copy {
-    color: #3b3d42;
+    color: #383a3f;
   }
 
   :root[data-theme='light'] p.supporting-copy {

@@ -46,18 +46,18 @@ export function ExperienceSection() {
           <span aria-hidden="true" className="mx-auto mt-3 block h-px w-12 bg-accent" />
           </motion.header>
 
-          <motion.ol initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.18, delayChildren: 0.12 } } }} className="relative mt-10 space-y-10 sm:mt-14 sm:space-y-12 lg:mt-16 lg:space-y-14">
-          <motion.span aria-hidden="true" variants={{ hidden: { scaleY: 0 }, visible: { scaleY: 1 } }} transition={{ duration: 0.8, ease: premiumEase }} className="absolute top-2 bottom-2 left-0 w-px origin-top bg-line" />
+          <motion.ol initial="hidden" whileInView="visible" viewport={revealViewport} variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.18, delayChildren: 0.17 } } }} className="relative mt-10 space-y-10 sm:mt-14 sm:space-y-12 lg:mt-16 lg:space-y-14">
+          <motion.span aria-hidden="true" variants={{ hidden: { scaleY: 0 }, visible: { scaleY: 1 } }} transition={{ duration: 1.2, ease: premiumEase }} className="absolute top-2 bottom-2 left-0 w-px origin-top bg-line" />
           {experiences.map((experience) => (
-            <motion.li variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.06 } } }} key={experience.company} className="group relative pl-6 sm:pl-8">
+            <motion.li variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.18 } } }} key={experience.company} className="group relative pl-6 sm:pl-8">
               <motion.span
                 aria-hidden="true"
                 variants={{ hidden: { opacity: 0, scale: 0.9, x: '-50%' }, visible: { opacity: 1, scale: 1, x: '-50%' } }}
-                transition={{ duration: 0.4, ease: premiumEase }}
+                transition={{ duration: 0.6, ease: premiumEase }}
                 className="absolute top-2 left-0 size-2 rounded-full border border-accent bg-surface transition-colors duration-200 group-hover:bg-accent"
               />
 
-              <motion.article variants={{ hidden: { opacity: 0, x: 18 }, visible: { opacity: 1, x: 0 } }} transition={{ duration: 0.7, ease: premiumEase }}>
+              <motion.article variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }} transition={{ duration: 0.95, ease: premiumEase }}>
                 <h3 className="max-w-4xl text-[1.375rem] leading-tight font-semibold tracking-[-0.03em] text-ink transition-colors duration-200 group-hover:text-accent sm:text-[1.625rem] lg:text-[2rem] min-[1600px]:text-[2.125rem]">
                   {experience.company.toUpperCase()}
                 </h3>
