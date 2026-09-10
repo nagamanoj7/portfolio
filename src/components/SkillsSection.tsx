@@ -21,12 +21,12 @@ const skillGroups: SkillGroup[] = [
   {
     category: 'DevOps & Cloud',
     icon: 'cloud',
-    skills: ['Docker', 'Linux', 'AWS', 'Azure', 'Git', 'Bash'],
+    skills: ['Docker', 'Linux', 'AWS', 'Azure', 'Git', 'Bash', 'CI/CD', 'Jenkins'],
   },
   {
     category: 'Database',
     icon: 'database',
-    skills: ['MongoDB', 'PostgreSQL', 'SQL'],
+    skills: ['MongoDB', 'PostgreSQL', 'SQL', 'SQL Server', 'MySQL'],
   },
 ]
 
