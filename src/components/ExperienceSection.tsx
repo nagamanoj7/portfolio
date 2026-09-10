@@ -12,13 +12,13 @@ const experiences: Experience[] = [
     company: 'Georgia Department of Transportation',
     role: 'Software Engineer',
     description:
-      'Working on the TPRO application, rewriting the existing legacy system into a modern, scalable, and maintainable application. My work focuses on rebuilding core functionality, improving workflows, performance, and security, while ensuring the new system continues to support transportation project reporting needs.',
+      'Working on the TPRO application, rewriting the existing legacy system into a modern, scalable, and maintainable application. My work focuses on developing full-stack functionality, improving application workflows, performance, and security, and supporting the transition to a microservices-based architecture.',
   },
   {
     company: 'Texas Tech University',
     role: 'Application Developer',
     description:
-      'Worked on developing and improving a survey management application designed to create, manage, and respond to surveys. My work focused on building reusable features, improving system performance and security, and providing a reliable and user-friendly experience for administrators, survey creators, and respondents.',
+      'Worked on developing and enhancing a Survey Management System designed to create, manage, and respond to academic surveys. My work focused on building reusable features, improving application performance and security, and providing a reliable and user-friendly experience for administrators, survey creators, and respondents.',
   },
 ]
 
