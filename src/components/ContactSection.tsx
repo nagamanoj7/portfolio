@@ -21,8 +21,8 @@ const contactInfo: Record<ContactKey, ContactItem> = {
   },
   phone: {
     label: 'Phone',
-    display: '(202) 798-1795',
-    href: 'tel:+12027981795',
+    display: '(806) 730-0419',
+    href: 'tel:+18067300419',
     external: false,
     icon: 'phone',
   },
